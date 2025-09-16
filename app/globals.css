@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* globals.css */
+.transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  pointer-events: none;
+
+  /* Gradient animated multi-color background */
+  background: linear-gradient(
+    45deg,
+    #ff4e50,
+    #f9d423,
+    #24c6dc,
+    #ab47bc,
+    #ff9800
+  );
+  background-size: 400% 400%;
+
+  animation: gradientAnimation 2s ease infinite;
+}
+
+/* تحريك الألوان */
+/* @keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+} */
+
+
+
+
+body{
+  background-color: black;
+}
+@font-face {
+  font-family: font1;
+  src: url("../public//fonts/Lausanne-300.woff2");
+}
+
+@font-face {
+  font-family: font2;
+  src: url("../public//fonts/Lausanne-500.woff2");
+}
+
+.text-border {
+  text-shadow: 
+     2px 2px 0 #000,  /* يمين-أسفل */
+    -2px 2px 0 #000,  /* يسار-أسفل */
+     2px -2px 0 #000, /* يمين-أعلى */
+    -2px -2px 0 #000, /* يسار-أعلى */
+     0 2px 0 #000,    /* أسفل */
+     2px 0 0 #000,    /* يمين */
+     0 -2px 0 #000,   /* أعلى */
+    -2px 0 0 #000;    /* يسار */
+}
+
+
+
+
+
+.glitch-soft {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  color: black;
+  animation: glitchSoft 5s infinite;
+}
+
+/* نسخة ثانية مشوهة */
+.glitch-soft::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #f3e600; /* أصفر */
+  opacity: 0.6;
+  clip-path: inset(0 0 50% 0); /* يقطع النص نصياً */
+  animation: glitchShift 5s infinite;
+}
+
+.glitch-soft::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #000;
+  opacity: 0.5;
+  clip-path: inset(50% 0 0 0);
+  animation: glitchShift 5s infinite reverse;
+}
+
+/* اهتزاز بسيط */
+@keyframes glitchSoft {
+  0% { transform: none; }
+  20% { transform: translate(1px, -1px) skew(0.5deg); filter: blur(0.5px); }
+  22% { transform: none; filter: none; }
+  50% { transform: translate(-1px, 1px) skew(-0.5deg); filter: blur(0.3px); }
+  52% { transform: none; filter: none; }
+  100% { transform: none; }
+}
+
+/* حركة تشويش بسيطة */
+@keyframes glitchShift {
+  0% { transform: translate(0,0); }
+  20% { transform: translate(-2px,1px); }
+  21% { transform: translate(0,0); }
+  50% { transform: translate(2px,-1px); }
+  51% { transform: translate(0,0); }
+  100% { transform: translate(0,0); }
+}
+
+
+
+
+
+
+
+  ::-webkit-scrollbar {
+      width: 20px;               /* حجم السكروول */
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f3e600; 
+          /* خلفية السكروول */
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: rgb(0, 0, 0);  
+      border: 1px #f3e600 solid;       /* لون السكروول نفسه */
+    }
+
+
